@@ -1,0 +1,108 @@
+/* Layout */
+html, body{
+	width  : 1280px;
+    height : 720px;
+    background : black;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+h3{
+    color: rgba(0,0,0,0.3);   
+}
+
+p{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/**
+ * Dashing.io Colors 
+ */
+
+.green    > figure { background: #95c049; }
+.turkoise > figure { background: #49bbb2; }
+.blue     > figure { background: #12b0c5; }
+.purple   > figure { background: #9c4274; }
+.red      > figure { background: #ec663c; }
+.orange   > figure { background: #ff9618; }   
+
+
+md-grid-list {
+    margin: 10px; 
+    height: 700px; 
+}
+/*
+md-grid-list md-grid-tile{
+    perspective: 800px;
+}
+
+ng-sprint-widget{
+
+}
+
+
+md-grid-list md-grid-tile .front,
+md-grid-list md-grid-tile .back{
+    transition: transform 1s ease-in-out;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateY(0deg);
+}
+
+md-grid-list md-grid-tile .front{
+    z-index: 2;
+}
+
+md-grid-list md-grid-tile .back{
+    transform: rotateY(-180deg);
+}
+
+md-grid-list md-grid-tile.flipped .front{
+    transform: rotateY(180deg);   
+}
+
+md-grid-list md-grid-tile.flipped .back{
+    transform: rotateY(0deg);   
+}
+
+md-grid-list md-grid-tile md-grid-tile-header{
+
+}
+*/
+md-grid-list md-grid-tile md-grid-tile-header h3{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+md-grid-list md-grid-tile md-grid-tile-footer{
+    text-align: center;
+    background: none;
+}
+
+md-grid-list md-grid-tile md-grid-tile-footer figcaption{
+    width: 100%;
+}
+
+md-grid-list md-grid-tile md-grid-tile-footer h3{
+    color: rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+md-list md-list-item .md-list-item-text h3{
+    color: rgba(0, 0, 0, 0.3) !important;
+}
+
+md-list md-list-item .md-list-item-text p{
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/**
+ * Remove Google logo on traffic map
+ */
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
