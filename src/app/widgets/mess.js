@@ -51,11 +51,11 @@
 
         widgetService.heartbeat(function(status){
      
-            $scope.status = status;
+            $scope.status = status.hours + ':' + status.minutes;
 
             messService.getData(function(data){
                 
-                $scope.list = data;
+                $scope.data = data;
             });
         }, 1 * 60 * 60 * 1000); // 1 hour
     }

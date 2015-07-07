@@ -8,7 +8,7 @@
      */
     angular
         .module('widget')
-        .directive('ngWidgetList', directive);
+        .directive('ngWidgetValue', directive);
 
 
     /**
@@ -21,16 +21,8 @@
          * @type {string} 
          * @public
          */
-        var template = [
-            '<md-list>',
-                '<md-list-item class="md-2-line" ng-repeat="item in data">',
-                    '<div class="md-list-item-text">',
-                        '<h3>{{ item.description }}</h3>',
-                        '<p>{{ item.value }}</p>',
-                    '</div>',
-                    '<md-divider ng-if="!$last"></md-divider>',
-                '</md-list-item>',
-            '</md-list>'
+        var template = [            
+            '<h2>{{ data }}</h2>',
         ].join('');
 
 
@@ -45,7 +37,6 @@
              * @public
              */
             $scope.update = function(data){
-
                 $scope.data = data;
             };
         };

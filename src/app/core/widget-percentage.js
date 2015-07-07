@@ -34,8 +34,8 @@
                 className = 'sprintchart';
 
 
-            var deferred = $q.defer();
-            var promise = deferred.promise; 
+            var deferred = $q.defer(),
+                promise = deferred.promise; 
 
             /**
              * @function _init

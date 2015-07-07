@@ -73,13 +73,7 @@
         $scope.footer = false;
         $scope.customTemplate = template;
 
-        widgetService.heartbeat(function(status){
-
-            $scope.status = status;
-
-            _reloadTiles();
-
-        }, 1 * 60 * 1000 ); // 1 minute
+        widgetService.heartbeat(_reloadTiles, 1 * 60 * 1000 ); // 1 minute
 
         var script = document.createElement('script');
 

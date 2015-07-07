@@ -61,7 +61,7 @@
         
         widgetService.heartbeat(function(status){ 
 
-            $scope.status = status;
+            $scope.status = status.hours + ':' + status.minutes;
 
             radioplusService.heartbeatFunction(_updateData); 
 

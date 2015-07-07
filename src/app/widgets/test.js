@@ -18,22 +18,15 @@
     function controller($scope, $document, widgetService){
 
         $scope.title = 'randomTest';
-        $scope.widgetType = 'percentage';
-
-        var _load = function(){
+        $scope.widgetType = 'value';
             
-            widgetService.heartbeat(function(status){
+        widgetService.heartbeat(function(status){
 
-                $scope.status = status;
+            $scope.status = status.hours + ':' + status.minutes;
 
-                $scope.update(Math.round(100 * Math.random()));
-                
-            }, 1 * 60 * 1000 ); // 1 minutes
-
-        }
-
-
-        $document.ready(_load);
+            $scope.update(Math.round(100 * Math.random()));
+            
+        }, 1 * 60 * 1000 ); // 1 minutes
     }
 
 

@@ -22,26 +22,20 @@
         $scope.title = 'Sprint Status';
         $scope.widgetType = 'percentage';
 
-        var _load = function(){
+        sprintService.getSprint(function(sprint){
+            
+            $scope.title = sprint.name + ' Status';
+        })
 
-            sprintService.getSprint(function(sprint){
-                
-                $scope.title = sprint.name + ' Status';
-            })
+        widgetService.heartbeat(function(status){
 
-            widgetService.heartbeat(function(status){
+            $scope.status = status.hours + ':' + status.minutes;
 
-                $scope.status = status;
+            sprintService.getSprintData(function(data){
 
-                sprintService.getSprintData(function(data){
-
-                    $scope.update(data);    
-                });
-            }, 15 * 60 * 1000 ); // 15 minutes
-        };
-
-        
-        $document.ready(_load);
+                $scope.update(data);    
+            });
+        }, 15 * 60 * 1000 ); // 15 minutes
     }
 
 

@@ -8,11 +8,14 @@
      */
     angular
         .module('widget', [])
-        .service('widgetService', ['$timeout', service])
+        .service('widgetService', ['$timeout', '$q', '$document', service])
         .directive('ngWidget', ['$compile', directive]);
 
 
-    function service($timeout){
+    function service($timeout, $q, $document){
+
+        var deferred = $q.defer(),
+            promise = deferred.promise;
 
 
         /**
@@ -23,7 +26,14 @@
 
             var now = new Date();
 
-            return _formatDoubleDigit(now.getHours()) + ":" + _formatDoubleDigit(now.getMinutes());
+            return {
+                year: now.getFullYear(),
+                month: now.getMonth(),
+                day: now.getDay(),
+                hours: _formatDoubleDigit(now.getHours()),
+                minutes: _formatDoubleDigit(now.getMinutes()),
+                seconds: _formatDoubleDigit(now.getSeconds())
+            }
         }
 
 
@@ -43,11 +53,16 @@
          */
         var heartbeat = function(callback, interval){
 
-            callback(_getFormattedHour(new Date()));
-            
-            $timeout(function(){ heartbeat(callback, interval); }, interval);
+            promise.then(function(){
+
+                callback(_getFormattedHour(new Date()));
+                
+                $timeout(function(){ heartbeat(callback, interval); }, interval);
+            });
         };
 
+
+        $document.ready(deferred.resolve);
 
         return {
             heartbeat : heartbeat
@@ -94,8 +109,14 @@
             template.push(templateHeader);
 
             switch(type){
+                case 'clock':
+                    template.push('<ng-widget-clock></ng-widget-clock>');
+                    break;
                 case 'list':
                     template.push('<ng-widget-list></ng-widget-list>');
+                    break;
+                case 'value':
+                    template.push('<ng-widget-value></ng-widget-value>');
                     break;
                 case 'percentage':
                     template.push('<ng-widget-percentage></ng-widget-percentage>');
