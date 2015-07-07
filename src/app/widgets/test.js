@@ -8,20 +8,20 @@
      */
     angular
         .module('testWidget', [])
-        .controller('randomTest', ['$scope', 'widgetService', controller]);
+        .controller('randomTest', ['$scope', '$document', 'widgetService', controller]);
 
 
     /**
      * @function controller
      * @private
      */
-    function controller($scope, widgetService){
+    function controller($scope, $document, widgetService){
 
         $scope.title = 'randomTest';
         $scope.widgetType = 'percentage';
 
         var _load = function(){
-
+            
             widgetService.heartbeat(function(status){
 
                 $scope.status = status;
@@ -33,11 +33,7 @@
         }
 
 
-        window.addEventListener ? 
-        window.addEventListener("load", _load, false) : 
-        window.attachEvent && window.attachEvent("onload", _load);
-
-        
+        $document.ready(_load);
     }
 
 

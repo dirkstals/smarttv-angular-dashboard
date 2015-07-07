@@ -47,6 +47,7 @@
     function controller($scope, widgetService, messService){
         
         $scope.title = "Vandaag in de Mess";
+        $scope.widgetType = 'list';
 
         widgetService.heartbeat(function(status){
      

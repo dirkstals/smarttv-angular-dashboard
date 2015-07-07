@@ -7,7 +7,7 @@
      * attach all dependencies
      */
     angular
-        .module('list', [])
+        .module('widget')
         .directive('ngWidgetList', directive);
 
 

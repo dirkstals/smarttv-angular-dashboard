@@ -7,7 +7,7 @@
      * attach all dependencies
      */
     angular
-        .module('percentage', [])
+        .module('widget')
         .directive('ngWidgetPercentage', directive);
 
 
@@ -22,7 +22,7 @@
          * @function controller
          * @public
          */
-        var controller = function($scope, $element){
+        var controller = function($scope, $element, $document, $q){
 
             var bow = 120,
                 width, height,
@@ -32,6 +32,10 @@
                 completionText,
                 percentageText,
                 className = 'sprintchart';
+
+
+            var deferred = $q.defer();
+            var promise = deferred.promise; 
 
             /**
              * @function _init
@@ -99,6 +103,8 @@
                     .style("font-weight","bold")
                     .attr('y', 10)
                     .attr('fill', 'white');
+
+                deferred.resolve();
             };
 
 
@@ -127,24 +133,24 @@
              */
             $scope.update = function(data){
 
-                gauge
-                    .transition()
-                    .duration(750)
-                    .call(_arcTween, _convertValue(data));
+                promise.then(function(){
 
-                completionText
-                    .text(Math.round(data) + '%');
+                    gauge
+                        .transition()
+                        .duration(750)
+                        .call(_arcTween, _convertValue(data));
+
+                    completionText
+                        .text(Math.round(data) + '%');
+                });
             };
 
-            window.addEventListener ? 
-            window.addEventListener("load", _load, false) : 
-            window.attachEvent && window.attachEvent("onload", _load);
-
+            $document.ready(_load);
         };
 
 
         return {
-            controller : ['$scope', '$element', controller]
+            controller : ['$scope', '$element', '$document', '$q', controller]
         }
     }
 

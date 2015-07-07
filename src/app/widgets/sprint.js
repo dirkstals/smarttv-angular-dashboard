@@ -9,7 +9,7 @@
     angular
         .module('sprintWidget', [])
         .service('sprintService', ['$http', service])
-        .controller('sprint', ['$scope', 'widgetService', 'sprintService', controller]);
+        .controller('sprint', ['$scope', '$document', 'widgetService', 'sprintService', controller]);
 
 
 
@@ -17,7 +17,7 @@
      * @function controller
      * @private
      */
-    function controller($scope, widgetService, sprintService){
+    function controller($scope, $document, widgetService, sprintService){
 
         $scope.title = 'Sprint Status';
         $scope.widgetType = 'percentage';
@@ -40,9 +40,8 @@
             }, 15 * 60 * 1000 ); // 15 minutes
         };
 
-        window.addEventListener ? 
-        window.addEventListener('load', _load, false) : 
-        window.attachEvent && window.attachEvent('onload', _load);
+        
+        $document.ready(_load);
     }
 
 

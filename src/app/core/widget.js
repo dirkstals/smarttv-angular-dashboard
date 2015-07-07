@@ -7,8 +7,7 @@
      * attach all dependencies
      */
     angular
-        .module('widget', ['list', 'percentage'])
-        //.factory('widgetFactory', ['$timeout', factory])
+        .module('widget', [])
         .service('widgetService', ['$timeout', service])
         .directive('ngWidget', ['$compile', directive]);
 
