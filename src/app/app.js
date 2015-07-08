@@ -33,12 +33,6 @@
     /**
      * Create the main Angular Module
      */ 
-    angular.module('dashboard', ['ngMaterial', 'widget',
-        'messWidget', 
-        'sprintWidget', 
-        'trafficWidget', 
-        'radioplusWidget',
-        'testWidget'
-    ]);
+    angular.module('dashboard', ['ngMaterial', 'widget']);
 
 })(window);

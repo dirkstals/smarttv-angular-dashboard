@@ -7,7 +7,7 @@
      * attach all dependencies
      */
     angular
-        .module('testWidget', [])
+        .module('dashboard')
         .controller('randomTest', ['$scope', '$document', 'widgetService', controller]);
 
 

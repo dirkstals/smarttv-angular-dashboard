@@ -7,7 +7,7 @@
      * attach all dependencies
      */
     angular
-        .module('messWidget', [])
+        .module('dashboard')
         .service('messService', ['$http', '$timeout', service])
         .controller('mess', ['$scope', 'widgetService', 'messService', controller]);
 

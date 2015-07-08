@@ -7,7 +7,7 @@
      * attach all dependencies
      */
     angular
-        .module('radioplusWidget', [])
+        .module('dashboard')
         .factory('radioplusSocket', factory)
         .service('radioplusService', ['radioplusSocket', service])
         .controller('radioplus', ['$scope', 'widgetService', 'radioplusService', controller]);

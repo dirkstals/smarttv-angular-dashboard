@@ -7,7 +7,7 @@
      * attach all dependencies
      */
     angular
-        .module('trafficWidget', [])
+        .module('dashboard')
         .controller('traffic', ['$scope', 'widgetService', controller]);
 
     /**

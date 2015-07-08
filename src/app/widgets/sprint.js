@@ -7,7 +7,7 @@
      * attach all dependencies
      */
     angular
-        .module('sprintWidget', [])
+        .module('dashboard')
         .service('sprintService', ['$http', service])
         .controller('sprint', ['$scope', '$document', 'widgetService', 'sprintService', controller]);
 
