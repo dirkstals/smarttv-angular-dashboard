@@ -22,7 +22,7 @@
          * @public
          */
         var template = [            
-            '<h2>{{ data }}</h2>',
+            '<h4>{{ data }}</h4>',
         ].join('');
 
 

@@ -25,16 +25,17 @@
         var _getFormattedHour = function(){
 
             var now = new Date();
+            var locale = 'nl-be';
 
             return {
                 year: now.getFullYear(),
-                month: now.getMonth(),
+                month: now.toLocaleString(locale, { month: "long" }),
                 day: now.getDay(),
                 hours: _formatDoubleDigit(now.getHours()),
                 minutes: _formatDoubleDigit(now.getMinutes()),
                 seconds: _formatDoubleDigit(now.getSeconds())
             }
-        }
+        };
 
 
         /**
@@ -44,7 +45,7 @@
         var _formatDoubleDigit = function(digit){
 
             return ('0' + digit).slice(-2);
-        }
+        };
 
 
         /**
@@ -84,13 +85,17 @@
 
         var templateHeader = [
             '<md-grid-tile-header ng-if="header">',
-                '<h3>{{title}}</h3>',
+                '<header>',
+                    '<h2>{{title}}</h2>',
+                '</header>',
             '</md-grid-tile-header>'
         ].join('');
 
         var templateFooter = [
             '<md-grid-tile-footer ng-if="footer">',
-                '<h3>Last updated {{status}}</h3>',
+                '<footer>',
+                    '<p>Last updated {{status}}</p>',
+                '</footer>',
             '</md-grid-tile-footer>'
         ].join('');
 
@@ -130,7 +135,7 @@
             template.push(templateEnd);
 
             return template.join('');
-        }
+        };
 
 
         /**

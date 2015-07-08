@@ -71,7 +71,7 @@
          * getSprint
          * public function
          */
-        this.getSprint = function( callback ){
+        var getSprint = function( callback ){
 
             $http.get( 'http://atlas.vrt.be/jira/rest/greenhopper/latest/sprintquery/' + projectId )
                 .success( function( result ){
@@ -81,13 +81,13 @@
 
                     callback( sprint );
                 });
-        }
+        };
         
         /**
          * onData
          * public function
          */
-        this.getSprintData = function( callback ) {
+        var getSprintData = function( callback ) {
             
             this.getSprint(function(sprint){
 
@@ -102,6 +102,11 @@
                         callback( 100 * current / total );
                     });
             });
+        };
+
+        return {
+            getSprint: getSprint,
+            getSprintData: getSprintData
         };
     }
 

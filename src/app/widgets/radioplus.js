@@ -55,7 +55,7 @@
                     }
                 });
             }
-        }
+        };
 
         radioplusService.init(_updateData);
         
@@ -79,7 +79,7 @@
      */
     function factory(){
 
-        var socket = io.connect('http://radioplusnode-stag.vrt.be', {
+        var socket = io.connect('http://radioplusnode.vrt.be', {
             'reconnect':false, 
             'reconnection delay': 5000, 
             'reconnection limit': 0, 
@@ -250,7 +250,7 @@
          * @function init
          * @public
          */
-        this.init = function( callback ) {
+        var init = function( callback ) {
 
             socket.on('connect', function(){
 
@@ -268,13 +268,18 @@
          * @function onHeartbeat
          * @public
          */
-        this.heartbeatFunction = function( callback ) {
+        var heartbeatFunction = function( callback ) {
 
             if( socketStarted ){
 
                 _checkSocketState();
                 _getCurrentState(callback);
             }
+        };
+
+        return {
+            init: init,
+            heartbeatFunction: heartbeatFunction
         };
     }
 

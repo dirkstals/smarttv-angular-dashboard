@@ -8,7 +8,7 @@
      */
     angular
         .module('widget')
-        .controller('clock', controller)
+        .controller('clock', ['$scope', 'widgetService', controller])
         .directive('ngWidgetClock', directive);
 
 
@@ -25,7 +25,7 @@
         widgetService.heartbeat(function(status){
 
             $scope.data = {
-                date: status.day + '-' + status.month + '-' + status.year,
+                date: status.day + ' ' + status.month + ' ' + status.year,
                 time: status.hours + ':' + status.minutes + ':' + status.seconds
             };
 
@@ -45,8 +45,8 @@
          * @public
          */
         var template = [            
-            '<h3>{{ data.date }}</h3>',
-            '<h2>{{ data.time }}</h2>',
+            '<h3 class="center">{{ data.date }}</h3>',
+            '<h4>{{ data.time }}</h4>',
         ].join('');
 
 

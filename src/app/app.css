@@ -2,21 +2,54 @@
 html, body{
 	width  : 1280px;
     height : 720px;
-    background : black;
-    color: rgba(255, 255, 255, 0.7);
+    background-color : #222222;
+    font-size: 20px;
+    color: white; /* color: rgba(255, 255, 255, 0.7); */
+    font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+header{
+    padding-left: 16px;
+}
+
+footer{
+    text-align: center;
 }
 
 h2{
-    font-size: 40px;
-    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
 }
 
 h3{
-    color: rgba(0,0,0,0.3);   
+    font-size: 30px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+h4{
+    font-size: 40px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 1);
+    margin: 0;
 }
 
 p{
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.3); 
+}
+
+ul{
+
+}
+
+li{
+    font-size: 14px;
+    font-weight: 400;
 }
 
 /**
@@ -30,6 +63,11 @@ p{
 .red      > figure { background: #ec663c; }
 .orange   > figure { background: #ff9618; }   
 
+
+
+.center{
+    text-align: center;
+}
 
 md-grid-list {
     margin: 10px; 
@@ -78,7 +116,6 @@ md-grid-list md-grid-tile md-grid-tile-header h3{
 }
 
 md-grid-list md-grid-tile md-grid-tile-footer{
-    text-align: center;
     background: none;
 }
 

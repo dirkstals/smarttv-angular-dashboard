@@ -45,7 +45,7 @@
 
             trafficLayer = new google.maps.TrafficLayer(); 
             trafficLayer.setMap(map); 
-        } 
+        };
 
 
         /**
@@ -61,7 +61,7 @@
                     $(tiles[i]).attr("src", new_src);                                                   
                 }               
             }
-        }
+        };
 
         window.initGoogleMaps = function(){
 

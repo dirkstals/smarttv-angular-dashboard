@@ -63,7 +63,7 @@
             var _load = function(){
                 _init();
                 _render();            
-            }
+            };
 
             /**
              * @function _convertValue
@@ -99,10 +99,20 @@
 
                 completionText = svg.append("text")
                     .style("text-anchor", "middle")
-                    .style("font-size","34px")
-                    .style("font-weight","bold")
+                    .style("font-size","40px")
+                    .style("font-weight","700")
                     .attr('y', 10)
                     .attr('fill', 'white');
+
+
+                percentageText = svg.append("text")
+                    .style("text-anchor", "middle")
+                    .style("font-size","24px")
+                    .style("font-weight","600")
+                    .style("opacity","0.7")
+                    .attr('y', 40)
+                    .attr('fill', 'white')
+                    .text('%');
 
                 deferred.resolve();
             };
@@ -125,7 +135,7 @@
                         return arc(d);
                     };
                 });
-            }
+            };
 
             /**
              * @function update
@@ -141,7 +151,7 @@
                         .call(_arcTween, _convertValue(data));
 
                     completionText
-                        .text(Math.round(data) + '%');
+                        .text(Math.round(data));
                 });
             };
 
@@ -151,7 +161,7 @@
 
         return {
             controller : ['$scope', '$element', '$document', '$q', controller]
-        }
+        };
     }
 
 })(window, window.angular);

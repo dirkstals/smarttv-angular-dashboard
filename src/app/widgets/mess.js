@@ -21,7 +21,7 @@
          * @function getData
          * @public
          */
-        this.getData = function(callback) {
+        var getData = function(callback) {
             
             $http.get('http://ishetlekkerindemess.be').success(function(result){
 
@@ -37,6 +37,10 @@
                 
                 callback(items);
             });
+        };
+
+        return {
+            getData : getData
         };
     }
 
