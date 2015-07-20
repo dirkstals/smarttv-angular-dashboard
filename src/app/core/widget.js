@@ -29,7 +29,7 @@
 
             return {
                 year: now.getFullYear(),
-                month: now.toLocaleString(locale, { month: "long" }),
+                month: /[a-z]+/gi.exec(now.toLocaleString(locale, { month: "long" })),
                 day: now.getDay(),
                 hours: _formatDoubleDigit(now.getHours()),
                 minutes: _formatDoubleDigit(now.getMinutes()),
