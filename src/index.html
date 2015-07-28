@@ -27,17 +27,29 @@
 				<ng-widget widget-id="clock" class="red"></ng-widget>
 			</md-grid-tile>
 
-	  		<md-grid-tile md-rowspan="2" md-colspan="2" class="turkoise"></md-grid-tile>
+	  		<md-grid-tile md-rowspan="2" md-colspan="2">
+	  			<ng-widget widget-id="value" class="turkoise"></ng-widget>
+	  		</md-grid-tile>
 
-	    	<md-grid-tile class="green" md-colspan="2"></md-grid-tile>
+	    	<md-grid-tile md-colspan="2">
+	    		<ng-widget widget-id="value" class="green"></ng-widget>
+	    	</md-grid-tile>
 
-			<md-grid-tile class="purple"></md-grid-tile>
+			<md-grid-tile>
+				<ng-widget widget-id="value" class="purple"></ng-widget>
+			</md-grid-tile>
 
-			<md-grid-tile class="purple"></md-grid-tile>
+			<md-grid-tile>
+				<ng-widget widget-id="value" widget-type="percentage" class="purple"></ng-widget>
+			</md-grid-tile>
 
-			<md-grid-tile md-rowspan="2" md-colspan="3" class="orange"></md-grid-tile>
+			<md-grid-tile md-rowspan="2" md-colspan="3">
+				<ng-widget widget-id="value" class="orange"></ng-widget>
+			</md-grid-tile>
 
-	    	<md-grid-tile md-colspan="3" class="blue"></md-grid-tile>
+	    	<md-grid-tile md-colspan="3">
+	    		<ng-widget widget-id="value" class="blue"></ng-widget>
+	    	</md-grid-tile>
 
 	  	</md-grid-list>
 	
@@ -63,7 +75,7 @@
 			<script src="app/app.js"></script>
 
 			<!-- widgets -->
-			
+			<script src="app/widgets/demo/value.js"></script>			
 
 		<!-- endbuild -->
 
