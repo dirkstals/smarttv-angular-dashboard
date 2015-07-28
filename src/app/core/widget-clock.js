@@ -18,15 +18,15 @@
      */
     function controller($scope, widgetService){
 
-        $scope.title = 'Klok';
+        $scope.title = 'Clock';
         $scope.footer = false;
         $scope.widgetType = 'clock';
 
         widgetService.heartbeat(function(status){
 
             $scope.data = {
-                date: status.day + ' ' + status.month + ' ' + status.year,
-                time: status.hours + ':' + status.minutes + ':' + status.seconds
+                'date': status.day + ' ' + status.month + ' ' + status.year,
+                'time': status.hours + ':' + status.minutes + ':' + status.seconds
             };
 
         }, 1000 ); // 1 second

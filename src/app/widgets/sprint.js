@@ -33,7 +33,10 @@
 
             sprintService.getSprintData(function(data){
                 
-                $scope.update(data.value, data.total);    
+                $scope.update({
+                    'value': data.value, 
+                    'total': data.total
+                });    
             });
         }, 15 * 60 * 1000 ); // 15 minutes
     }

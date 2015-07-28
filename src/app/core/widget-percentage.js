@@ -141,19 +141,19 @@
              * @function update
              * @public
              */
-            $scope.update = function(value, total){
+            $scope.update = function(data){
 
                 promise.then(function(){
 
                     gauge
                         .transition()
                         .duration(750)
-                        .call(_arcTween, _convertValue(100 * value / total));
+                        .call(_arcTween, _convertValue(100 * data.value / data.total));
 
                     completionText
-                        .text(Math.round(100 * value / total));
+                        .text(Math.round(100 * data.value / data.total));
 
-                    $scope.status = value + '/' + total;
+                    $scope.status = data.value + '/' + data.total;
                 });
             };
 
