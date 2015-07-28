@@ -8,7 +8,7 @@
      */
     angular
         .module('dashboard')
-        .controller('value', ['$scope', 'widgetService', controller]);
+        .controller('list', ['$scope', 'widgetService', controller]);
 
 
     /**
@@ -17,14 +17,23 @@
      */
     function controller($scope, widgetService){
 
-        $scope.title = 'Random Numbers';
-        $scope.widgetType = 'value';
+        $scope.title = 'List';
+        $scope.widgetType = 'list';
             
         widgetService.heartbeat(function(status){
 
             $scope.lastUpdated = status.hours + ':' + status.minutes;
 
-            $scope.update(Math.round(100 * Math.random()));
+            $scope.update([
+                {
+                    'description': 'This looks like a list',
+                    'value': 'Oh hell, it IS a list!'
+                },
+                {
+                    'description': 'With multiple items indeed',
+                    'value': 'My day just got better.'
+                }
+            ]);
             
         }, 1 * 60 * 1000 ); // 1 minutes
     }
