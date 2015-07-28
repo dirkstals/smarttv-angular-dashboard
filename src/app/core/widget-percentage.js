@@ -61,8 +61,8 @@
              * @private
              */
             var _load = function(){
-                _init();
-                _render();            
+                setTimeout(_init);
+                setTimeout(_render);
             };
 
             /**
