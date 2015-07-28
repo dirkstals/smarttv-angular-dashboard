@@ -5,3 +5,5 @@ packages/
 Logs/
 .tmp/
 npm-debug.log
+src/app/widgets/*
+!src/app/widgets/demo/

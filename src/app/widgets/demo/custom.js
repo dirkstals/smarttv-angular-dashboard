@@ -17,7 +17,7 @@
      */
     function controller($scope, widgetService){
 
-        $scope.title = 'Random Numbers';
+        $scope.title = 'Custom';
         $scope.widgetType = 'value';
             
         widgetService.heartbeat(function(status){
