@@ -1,0 +1,154 @@
+/* Layout */
+html, body{
+	width  : 1280px;
+    height : 720px;
+    background-color : #222222;
+    font-size: 20px;
+    color: white; /* color: rgba(255, 255, 255, 0.7); */
+    font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+header{
+    padding-left: 16px;
+}
+
+footer{
+    text-align: center;
+}
+
+h2{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+h3{
+    font-size: 30px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+h4{
+    font-size: 40px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 1);
+    margin: 0;
+}
+
+p{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.3); 
+}
+
+ul{
+
+}
+
+li{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+footer p span{
+    display: block;
+}
+
+/**
+ * Dashing.io Colors 
+ */
+
+.green    > figure { background: #95c049; }
+.turkoise > figure { background: #49bbb2; }
+.blue     > figure { background: #12b0c5; }
+.purple   > figure { background: #9c4274; }
+.red      > figure { background: #ec663c; }
+.orange   > figure { background: #ff9618; }   
+
+
+
+.center{
+    text-align: center;
+}
+
+md-grid-list {
+    margin: 10px; 
+    height: 700px; 
+}
+/*
+md-grid-list md-grid-tile{
+    perspective: 800px;
+}
+
+ng-sprint-widget{
+
+}
+
+
+md-grid-list md-grid-tile .front,
+md-grid-list md-grid-tile .back{
+    transition: transform 1s ease-in-out;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateY(0deg);
+}
+
+md-grid-list md-grid-tile .front{
+    z-index: 2;
+}
+
+md-grid-list md-grid-tile .back{
+    transform: rotateY(-180deg);
+}
+
+md-grid-list md-grid-tile.flipped .front{
+    transform: rotateY(180deg);   
+}
+
+md-grid-list md-grid-tile.flipped .back{
+    transform: rotateY(0deg);   
+}
+
+md-grid-list md-grid-tile md-grid-tile-header{
+
+}
+*/
+md-grid-list md-grid-tile md-grid-tile-header h3{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+md-grid-list md-grid-tile md-grid-tile-footer{
+    background: none;
+}
+
+md-grid-list md-grid-tile md-grid-tile-footer figcaption{
+    width: 100%;
+}
+
+md-grid-list md-grid-tile md-grid-tile-footer h3{
+    color: rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+md-list md-list-item .md-list-item-text h3{
+    color: rgba(0, 0, 0, 0.3) !important;
+}
+
+md-list md-list-item .md-list-item-text p{
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/**
+ * Remove Google logo on traffic map
+ */
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
