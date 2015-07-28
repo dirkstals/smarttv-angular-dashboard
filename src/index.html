@@ -23,29 +23,19 @@
 
 		<md-grid-list md-cols="6" md-row-height="{{(720-40)/3}}px" md-gutter="10px" >
 
-	  		<md-grid-tile md-rowspan="3" md-colspan="2">
-	  			<ng-widget widget-id="mess" class="turkoise"></ng-widget>
-	  		</md-grid-tile>
-
-	    	<md-grid-tile>
-	    		<ng-widget widget-id="sprint" class="green"></ng-widget>
-	    	</md-grid-tile>
-
-			<md-grid-tile md-rowspan="2" md-colspan="3">
-				<ng-widget widget-id="traffic"></ng-widget>
-			</md-grid-tile>
-
-			<md-grid-tile>
-				<ng-widget widget-id="meme" class="purple"></ng-widget>
-			</md-grid-tile>
-
-	    	<md-grid-tile md-colspan="3">
-	      		<ng-widget widget-id="radioplus" class="orange"></ng-widget>
-	    	</md-grid-tile>
-
 			<md-grid-tile>
 				<ng-widget widget-id="clock" class="red"></ng-widget>
 			</md-grid-tile>
+
+	  		<md-grid-tile md-rowspan="3" md-colspan="2" class="turkoise"></md-grid-tile>
+
+	    	<md-grid-tile class="green"></md-grid-tile>
+
+			<md-grid-tile md-rowspan="2" md-colspan="3" class="orange"></md-grid-tile>
+
+			<md-grid-tile class="purple"></md-grid-tile>
+
+	    	<md-grid-tile md-colspan="3" class="blue"></md-grid-tile>
 
 	  	</md-grid-list>
 	
@@ -71,13 +61,7 @@
 			<script src="app/app.js"></script>
 
 			<!-- widgets -->
-			<script src="app/widgets/lib/socket.io.min.js"></script>
-			<script src="app/widgets/test.js"></script>
-			<script src="app/widgets/mess.js"></script>
-			<script src="app/widgets/meme.js"></script>
-			<script src="app/widgets/sprint.js"></script>
-			<script src="app/widgets/traffic.js"></script>
-			<script src="app/widgets/radioplus.js"></script>
+			
 
 		<!-- endbuild -->
 
