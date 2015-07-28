@@ -22,7 +22,7 @@
             
         widgetService.heartbeat(function(status){
 
-            $scope.status = status.hours + ':' + status.minutes;
+            $scope.lastUpdated = status.hours + ':' + status.minutes;
 
             $scope.update(Math.round(100 * Math.random()));
             

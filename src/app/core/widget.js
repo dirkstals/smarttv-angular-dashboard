@@ -94,7 +94,10 @@
         var templateFooter = [
             '<md-grid-tile-footer ng-if="footer">',
                 '<footer>',
-                    '<p>Last updated {{status}}</p>',
+                    '<p>',
+                        '<span ng-if="status">{{status}}</span>',
+                        '<span ng-if="lastUpdated">Last updated {{lastUpdated}}</span>',
+                    '</p>',
                 '</footer>',
             '</md-grid-tile-footer>'
         ].join('');
@@ -125,6 +128,9 @@
                     break;
                 case 'percentage':
                     template.push('<ng-widget-percentage></ng-widget-percentage>');
+                    break;
+                case 'image':
+                    template.push('<ng-widget-image></ng-widget-image>');
                     break;
                 default:
                     template.push(customTemplate);

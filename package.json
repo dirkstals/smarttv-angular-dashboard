@@ -6,9 +6,9 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "start": "npm run build -s && npm run vbox -s",
-    "build": "grunt > /dev/null",
-    "serve": "sudo node node_modules/samsungstv-packager/cli dist",
+    "emulate": "npm run build && npm run vbox",
+    "build": "grunt",
+    "serve": "npm run build && sudo node node_modules/samsungstv-packager/cli dist",
     "vbox": "npm run vbox:sharedfolder && npm run vbox:run",
     "vbox:sharedfolder": "npm run vbox:sharedfolder:remove && npm run vbox:sharedfolder:add",
     "vbox:sharedfolder:remove": "VBoxManage sharedfolder remove \"2014_Smart_TV_Emulator_5_1\" --name \"Apps\"",

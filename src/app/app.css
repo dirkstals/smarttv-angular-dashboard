@@ -52,6 +52,10 @@ li{
     font-weight: 400;
 }
 
+footer p span{
+    display: block;
+}
+
 /**
  * Dashing.io Colors 
  */

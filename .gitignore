@@ -4,3 +4,4 @@ dist/
 packages/
 Logs/
 .tmp/
+npm-debug.log

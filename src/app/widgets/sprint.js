@@ -29,11 +29,11 @@
 
         widgetService.heartbeat(function(status){
 
-            $scope.status = status.hours + ':' + status.minutes;
+            $scope.lastUpdated = status.hours + ':' + status.minutes;
 
             sprintService.getSprintData(function(data){
-
-                $scope.update(data);    
+                
+                $scope.update(data.value, data.total);    
             });
         }, 15 * 60 * 1000 ); // 15 minutes
     }
@@ -99,7 +99,10 @@
                         var total   = sprint.allIssuesEstimateSum.value;
                         var current = sprint.completedIssuesEstimateSum.value;
 
-                        callback( 100 * current / total );
+                        callback({
+                            'value': current, 
+                            'total': total
+                        });
                     });
             });
         };
