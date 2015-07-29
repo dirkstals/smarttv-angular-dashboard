@@ -53,24 +53,61 @@ In a tile you can specify a widget with the `ng-widget` directive. Specify a wid
 
 Example:
 
-    <ng-widget widget-id="clock"></ng-widget>    
+    <ng-widget widget-id="mycontrollername"></ng-widget>
 
- 
-
-## Using widgets
-
-Insert your widget scripts at the bottom of the page, right after the `<!-- widgets -->` comment and before the `<!-- endbuild -->` comment.
+Insert a widget script at the bottom of the page, right after the `<!-- widgets -->` comment and before the `<!-- endbuild -->` comment.
 
         <!-- widgets -->
-        <script src="app/widgets/my-widget/my-widget.js"></script>
+        <script src="app/widgets/mywidget/mywidget.js"></script>
 
     <!-- endbuild -->
 
+#### Creating a widget
+
+The code for making a widget is as follows
+
+    (function(window, angular, undefined){
+        
+        'use strict';
+
+        /**
+         * Add a new controller to the dashboard module
+         * add the dependency $scope
+         */
+        angular
+            .module('dashboard')
+            .controller('mycontrollername', ['$scope', controller]);
 
 
-## Widgets
+        /**
+         * @function controller
+         * @private
+         */
+        function controller($scope){
 
-### Value
+            $scope.title = 'My first Widget';
+            $scope.data = '1337';
+            $scope.status = 'Such wow';
+        }
+
+    })(window, window.angular);
+
+The widget can be personalized with the following variables.
+
+$scope.header = TRUE;
+$scope.footer = TRUE;
+$scope.title = 'Widget Title';
+$scope.widgetType = '';
+$scope.status = '';
+$scope.lastUpdated = '';
+
+
+
+
+
+## Widget Types
+
+### value
 
 Shows a value.
 
@@ -78,7 +115,7 @@ update(data) where data is a string
 
     $scope.update('52');
 
-### List
+### list
 
 Shows a list.
 
@@ -89,7 +126,7 @@ update(data) where data is an object with keys `description` and `value`.
         'value': 'A larger text for the content.'
     });
 
-### Percentage
+### percentage
 
 Shows a visual representation of a percentage.
 
@@ -100,7 +137,7 @@ update(data) where data is an object with keys `value` and `total`.
         'total': 24
     });
 
-### Image
+### image
 
 Shows an image
 
@@ -108,7 +145,7 @@ update(data) where data is a URL of an image
 
     $scope.update('https://placekitten.com/g/200/300');
 
-### Clock
+### clock
 
 Shows the current date and time
 
