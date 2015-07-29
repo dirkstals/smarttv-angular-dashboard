@@ -23,32 +23,32 @@
 
         <md-grid-list md-cols="6" md-row-height="{{(720-40)/3}}px" md-gutter="10px" >
 
-            <md-grid-tile>
-                <ng-widget widget-id="clock" class="red"></ng-widget>
+            <md-grid-tile class="red">
+                <ng-widget widget-id="clock"></ng-widget>
             </md-grid-tile>
 
-            <md-grid-tile md-rowspan="2" md-colspan="2">
-                <ng-widget widget-id="value" class="turkoise"></ng-widget>
+            <md-grid-tile md-rowspan="2" md-colspan="2" class="turkoise">
+                <ng-widget widget-id="mycontrollername"></ng-widget>
             </md-grid-tile>
 
-            <md-grid-tile md-colspan="2">
-                <ng-widget widget-id="list" class="green"></ng-widget>
+            <md-grid-tile md-colspan="2" class="green">
+                <ng-widget widget-id="list"></ng-widget>
             </md-grid-tile>
 
-            <md-grid-tile>
-                <ng-widget widget-id="value" class="purple"></ng-widget>
+            <md-grid-tile class="purple">
+                <ng-widget widget-id="value"></ng-widget>
             </md-grid-tile>
 
-            <md-grid-tile>
-                <ng-widget widget-id="value" widget-type="percentage" class="purple"></ng-widget>
+            <md-grid-tile class="purple">
+                <ng-widget widget-id="value" widget-type="percentage"></ng-widget>
             </md-grid-tile>
 
-            <md-grid-tile md-rowspan="2" md-colspan="3">
-                <ng-widget widget-id="value" widget-type="percentage" class="orange"></ng-widget>
+            <md-grid-tile md-rowspan="2" md-colspan="3" class="orange">
+                <ng-widget widget-id="value" widget-type="percentage"></ng-widget>
             </md-grid-tile>
 
-            <md-grid-tile md-colspan="3">
-                <ng-widget widget-id="value" class="blue"></ng-widget>
+            <md-grid-tile md-colspan="3" class="blue">
+                <ng-widget widget-id="value"></ng-widget>
             </md-grid-tile>
 
         </md-grid-list>
@@ -76,7 +76,8 @@
 
             <!-- widgets -->
             <script src="app/widgets/demo/value.js"></script>           
-            <script src="app/widgets/demo/list.js"></script>            
+            <script src="app/widgets/demo/list.js"></script>     
+            <script src="app/widgets/demo/custom.js"></script>            
 
         <!-- endbuild -->
 

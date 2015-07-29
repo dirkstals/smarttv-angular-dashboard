@@ -1,33 +1,26 @@
+
 (function(window, angular, undefined){
     
     'use strict';
 
     /**
-     * Create a new module and
-     * attach all dependencies
+     * Add a new controller to the dashboard module
+     * add the dependency $scope
      */
     angular
         .module('dashboard')
-        .controller('value', ['$scope', 'widgetService', controller]);
+        .controller('mycontrollername', ['$scope', controller]);
 
 
     /**
      * @function controller
      * @private
      */
-    function controller($scope, widgetService){
+    function controller($scope){
 
-        $scope.title = 'Custom';
-        $scope.widgetType = 'value';
-            
-        widgetService.heartbeat(function(status){
-
-            $scope.lastUpdated = status.hours + ':' + status.minutes;
-
-            $scope.update(Math.round(100 * Math.random()));
-            
-        }, 1 * 60 * 1000 ); // 1 minutes
+        $scope.title = 'My first Widget';
+        $scope.data = '1337';
+        $scope.status = 'Such wow';
     }
-
 
 })(window, window.angular);
