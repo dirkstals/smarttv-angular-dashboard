@@ -61,8 +61,8 @@
              * @private
              */
             var _load = function(){
-                _init();
-                _render();            
+                setTimeout(_init);
+                setTimeout(_render);
             };
 
             /**
@@ -143,17 +143,20 @@
              */
             $scope.update = function(data){
 
+                var value = isNaN(data) ? data.value : parseInt(data),
+                    total = isNaN(data) ? data.total : 100;
+
                 promise.then(function(){
 
                     gauge
                         .transition()
                         .duration(750)
-                        .call(_arcTween, _convertValue(100 * data.value / data.total));
+                        .call(_arcTween, _convertValue(100 * value / total));
 
                     completionText
-                        .text(Math.round(100 * data.value / data.total));
+                        .text(Math.round(100 * value / total));
 
-                    $scope.status = data.value + '/' + data.total;
+                    $scope.status = value + '/' + total;
                 });
             };
 
