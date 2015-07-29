@@ -102,9 +102,6 @@ The widget can be personalized with the following variables.
     $scope.lastUpdated = '';
 
 
-
-
-
 ## Widget Types
 
 ### value
