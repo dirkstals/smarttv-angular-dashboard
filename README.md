@@ -94,12 +94,12 @@ The code for making a widget is as follows
 
 The widget can be personalized with the following variables.
 
-$scope.header = TRUE;
-$scope.footer = TRUE;
-$scope.title = 'Widget Title';
-$scope.widgetType = '';
-$scope.status = '';
-$scope.lastUpdated = '';
+    $scope.header = TRUE;
+    $scope.footer = TRUE;
+    $scope.title = 'Widget Title';
+    $scope.widgetType = '';
+    $scope.status = '';
+    $scope.lastUpdated = '';
 
 
 
