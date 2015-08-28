@@ -46,7 +46,7 @@
          */
         var template = [            
             '<h3 class="center">{{ data.date }}</h3>',
-            '<h4>{{ data.time }}</h4>',
+            '<h4 class="center">{{ data.time }}</h4>',
         ].join('');
 
 

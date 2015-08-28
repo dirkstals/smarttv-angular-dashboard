@@ -29,8 +29,8 @@
 
             return {
                 year: now.getFullYear(),
-                month: /[a-z]+/gi.exec(now.toLocaleString(locale, { month: "long" })),
-                day: now.getDay(),
+                month: (/[a-z]+/gi.exec(now.toLocaleString(locale, { month: "short" })))[0].substring(0, 3),
+                day: now.getDate(),
                 hours: _formatDoubleDigit(now.getHours()),
                 minutes: _formatDoubleDigit(now.getMinutes()),
                 seconds: _formatDoubleDigit(now.getSeconds())
@@ -133,7 +133,7 @@
                     template.push('<ng-widget-image></ng-widget-image>');
                     break;
                 default:
-                    template.push(customTemplate);
+                    template.push(customTemplate ? customTemplate : '<ng-widget-value></ng-widget-value>');
                     break;        
             }
             
@@ -157,7 +157,7 @@
 
 
             /** Load html template in current element based on widgetType */
-            element.html(_getTemplate(attrs.widgetType || scope.widgetType || 'value', scope.customTemplate));
+            element.html(_getTemplate(attrs.widgetType || scope.widgetType, scope.customTemplate));
 
             /** Render the element and inject the scope */
             $compile(element.contents())(scope);
