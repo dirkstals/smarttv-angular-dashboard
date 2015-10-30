@@ -29,7 +29,7 @@
         var scale = attributes['widget-scale'] ? parseFloat(attributes['widget-scale'].value) : 1;
         var rows = parentAttributes['md-rowspan'] ? parseInt(parentAttributes['md-rowspan'].value) : 1;
 
-        $scope.scale = scale;
+        $scope.scale = $scope.webkitscale = $scope.zoom = scale;
         $scope.width = 'calc(' + (100 / scale) + '% - ' + (4 / scale) + 'px)';
         $scope.height = 'calc(' + (100 / scale) + '% - ' + (96 / scale) + 'px)';
 
@@ -56,7 +56,10 @@
         var template = [
             '<style>',
                 'iframe.iframe{',
+                    'zoom: {{zoom}};',
                     'transform: scale({{scale}});',
+                    '-webkit-transform: scale({{webkitscale}});',
+                    '-webkit-transform-origin: 0 0;',
                     'transform-origin: 0 0;',
                     'width: {{width}};',
                     'height: {{height}};',
@@ -64,6 +67,7 @@
                     'left: 2px;',
                     'right: 2px;',
                     'top: 48px;',
+                    'background-color : #FFF;',
                 '}',
             '</style>',
             '<iframe ng-src="{{url}}" class="iframe" frameBorder="0" width="100%">'

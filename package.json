@@ -1,6 +1,6 @@
 {
   "name": "Dashboard",
-  "version": "0.1.2",
+  "version": "0.2.1",
   "description": "",
   "main": "dist/index.html",
   "author": "",
@@ -8,7 +8,7 @@
   "scripts": {
     "emulate": "npm run build && npm run vbox",
     "build": "grunt",
-    "serve": "npm run build && sudo node node_modules/samsungstv-packager/cli dist",
+    "serve": "sudo node node_modules/samsungstv-packager/cli dist",
     "vbox": "npm run vbox:sharedfolder && npm run vbox:run",
     "vbox:sharedfolder": "npm run vbox:sharedfolder:remove && npm run vbox:sharedfolder:add",
     "vbox:sharedfolder:remove": "VBoxManage sharedfolder remove \"2014_Smart_TV_Emulator_5_1\" --name \"Apps\"",
