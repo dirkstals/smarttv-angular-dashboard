@@ -25,8 +25,8 @@
         widgetService.heartbeat(function(status){
 
             $scope.data = {
-                'date': status.day + ' ' + status.month + ' ' + status.year,
-                'time': status.hours + ':' + status.minutes + ':' + status.seconds
+                'date': status.date,
+                'time': status.time
             };
 
         }, 1000 ); // 1 second

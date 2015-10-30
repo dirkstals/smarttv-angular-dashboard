@@ -22,7 +22,7 @@
          * @public
          */
         var template = [            
-            '<figure style="background: url({{data}}) 50% 50% no-repeat; background-size: contain;"></figure>',
+            '<figure style="background: url({{data}}) 50% 50% no-repeat; background-size: cover;"></figure>',
         ].join('');
 
 

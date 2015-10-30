@@ -8,34 +8,44 @@
      */
     angular
         .module('widget', [])
-        .service('widgetService', ['$timeout', '$q', '$document', service])
+        .factory('widgetFactory', factory)
+        .service('widgetService', ['$timeout', '$q', '$document', 'widgetFactory', service])
         .directive('ngWidget', ['$compile', directive]);
 
 
-    function service($timeout, $q, $document){
+    function service($timeout, $q, $document, widgetFactory){
 
         var deferred = $q.defer(),
             promise = deferred.promise;
 
 
         /**
-         * @function _getFormattedHour
-         * @private
+         * @function heartbeat
+         * @public
          */
-        var _getFormattedHour = function(){
+        var heartbeat = function(callback, interval){
 
-            var now = new Date();
-            var locale = 'nl-be';
+            promise.then(function(){
 
-            return {
-                year: now.getFullYear(),
-                month: (/[a-z]+/gi.exec(now.toLocaleString(locale, { month: "short" })))[0].substring(0, 3),
-                day: now.getDate(),
-                hours: _formatDoubleDigit(now.getHours()),
-                minutes: _formatDoubleDigit(now.getMinutes()),
-                seconds: _formatDoubleDigit(now.getSeconds())
-            }
+                callback(widgetFactory.formatDate(new Date()));
+                
+                $timeout(function(){ heartbeat(callback, interval); }, interval);
+            });
         };
+
+
+        $document.ready(deferred.resolve);
+
+        return {
+            heartbeat : heartbeat
+        };
+    }
+
+
+    /**
+     * @function factory
+     */
+    function factory(){
 
 
         /**
@@ -49,24 +59,41 @@
 
 
         /**
-         * @function heartbeat
+         * @function formatDate
          * @public
          */
-        var heartbeat = function(callback, interval){
+        var formatDate = function(javascriptDate){
 
-            promise.then(function(){
+            var timestamp = new Date(javascriptDate);
+            var locale = 'nl-be';
+            var formattedDate = {
+                year: timestamp.getFullYear(),
+                month: (/[a-z]+/gi.exec(timestamp.toLocaleString(locale, { month: "short" })))[0].substring(0, 3),
+                day: timestamp.getDate(),
+                hours: _formatDoubleDigit(timestamp.getHours()),
+                minutes: _formatDoubleDigit(timestamp.getMinutes()),
+                seconds: _formatDoubleDigit(timestamp.getSeconds())
+            };
 
-                callback(_getFormattedHour(new Date()));
-                
-                $timeout(function(){ heartbeat(callback, interval); }, interval);
-            });
-        };
+            formattedDate.date = formattedDate.day + ' ' + formattedDate.month + ' ' + formattedDate.year;
+            formattedDate.time = formattedDate.hours + ':' + formattedDate.minutes + ':' + formattedDate.seconds;
 
+                        /**
+             * @function _toString
+             * @private
+             */
+            var _toString = function(){
 
-        $document.ready(deferred.resolve);
+                return formattedDate.date + ' - ' + formattedDate.time;
+            };
+
+            formattedDate.toString = _toString;
+
+            return formattedDate;
+        }
 
         return {
-            heartbeat : heartbeat
+            formatDate : formatDate
         };
     }
 
@@ -128,6 +155,9 @@
                     break;
                 case 'percentage':
                     template.push('<ng-widget-percentage></ng-widget-percentage>');
+                    break;
+                case 'iframe':
+                    template.push('<ng-widget-iframe></ng-widget-iframe>');
                     break;
                 case 'image':
                     template.push('<ng-widget-image></ng-widget-image>');

@@ -28,6 +28,7 @@ h3{
     font-weight: 300;
     color: rgba(255, 255, 255, 0.7);
     margin: 0;
+    white-space: nowrap;
 }
 
 h4{
@@ -35,6 +36,9 @@ h4{
     font-weight: 700;
     color: rgba(255, 255, 255, 1);
     margin: 0;
+    word-break: break-word;
+    text-align: center;
+    line-height: 1em;
 }
 
 p{
@@ -77,6 +81,11 @@ md-grid-list {
     margin: 10px; 
     height: 700px; 
 }
+
+ng-widget, md-grid-tile{
+    overflow: hidden;
+}
+
 /*
 md-grid-list md-grid-tile{
     perspective: 800px;
