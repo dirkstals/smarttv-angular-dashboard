@@ -8,39 +8,7 @@
      */
     angular
         .module('widget')
-        .controller('iframe', ['$scope', '$element', '$sce', 'widgetService', controller])
         .directive('ngWidgetIframe', directive);
-
-
-    /**
-     * @function controller
-     * @private
-     */
-    function controller($scope, $element, $sce, widgetService){
-
-        $scope.title = $element[0].attributes['widget-title'].value || 'Iframe';
-        $scope.footer = true;
-        $scope.widgetType = 'iframe';
-        $scope.url = $sce.trustAsResourceUrl($element[0].attributes['widget-url'].value);
-
-        var attributes = $element[0].attributes;
-        var parentAttributes = $element[0].parentNode.parentNode.attributes
-
-        var scale = attributes['widget-scale'] ? parseFloat(attributes['widget-scale'].value) : 1;
-        var rows = parentAttributes['md-rowspan'] ? parseInt(parentAttributes['md-rowspan'].value) : 1;
-
-        $scope.scale = $scope.webkitscale = $scope.zoom = scale;
-        $scope.width = 'calc(' + (100 / scale) + '% - ' + (4 / scale) + 'px)';
-        $scope.height = 'calc(' + (100 / scale) + '% - ' + (96 / scale) + 'px)';
-
-        widgetService.heartbeat(function(status){
-
-            $element[0].querySelector('iframe').contentWindow.location.reload(true);
-
-            $scope.lastUpdated = status.hours + ':' + status.minutes;
-
-        }, 1 * 60 * 1000 ); // 1 minute
-    }
 
 
     /**
@@ -56,7 +24,6 @@
         var template = [
             '<style>',
                 'iframe.iframe{',
-                    'zoom: {{zoom}};',
                     'transform: scale({{scale}});',
                     '-webkit-transform: scale({{webkitscale}});',
                     '-webkit-transform-origin: 0 0;',
@@ -64,17 +31,109 @@
                     'width: {{width}};',
                     'height: {{height}};',
                     'position: absolute;',
-                    'left: 2px;',
-                    'right: 2px;',
-                    'top: 48px;',
+                    'left: 0px;',
+                    'right: 0px;',
+                    'top: {{top}};',
                     'background-color : #FFF;',
                 '}',
             '</style>',
             '<iframe ng-src="{{url}}" class="iframe" frameBorder="0" width="100%">'
         ].join('');
 
+
+        /**
+         * @function controller
+         * @private
+         */
+        var controller = function($scope, $element, $sce, $http, widgetService){
+
+            /**
+             * variables
+             */
+            var widgetType,
+                attributes,
+                element,
+                parentAttributes,
+                title,
+                scale,
+                updateInterval,
+                rows,
+                width,
+                top,
+                height;
+
+
+            /**
+             * @function _init
+             * @private
+             */
+            var _init = function(){
+
+                widgetType = 'iframe';
+                element = $element[0].parentNode.parentNode;
+                attributes = element.attributes;
+                parentAttributes = element.parentNode.parentNode.attributes;
+                title = attributes['widget-title'] ? attributes['widget-title'].value : 'Iframe';
+                scale = attributes['widget-scale'] ? parseFloat(attributes['widget-scale'].value) : 1;
+                scale = $scope.widgetScale ? $scope.widgetScale : scale;
+                updateInterval = attributes['widget-update'] ? parseInt(attributes['widget-update'].value) : false;
+                rows = parentAttributes['md-rowspan'] ? parseInt(parentAttributes['md-rowspan'].value) : 1;
+                width = 'calc(' + (100 / scale) + '% - ' + (0 / scale) + 'px)';
+                top = ($scope.header ? 48 : 0) + 'px';
+                height = 'calc(' + (100 / scale) + '% - ' + (($scope.header ? 48 : 0) + ($scope.footer ? 48 : 0) / scale) + 'px)';
+
+
+                if(updateInterval){
+
+                    widgetService.heartbeat(_heartbeat, updateInterval);
+                }
+            }
+
+            /**
+             * @function update
+             * @public
+             */
+            var update = function(data){
+
+                $scope.url = $sce.trustAsResourceUrl(data);
+            };
+
+
+            /**
+             * @function _heartbeat
+             * @private
+             */
+            var _heartbeat = function(status){
+
+                $scope.update($element[0].attributes['widget-url'].value);
+
+                $scope.lastUpdated = status.hours + ':' + status.minutes;
+            };
+
+
+            /**
+             * Initialize controller
+             */
+            _init();
+
+
+            /**
+             * expose data to scope
+             */
+            $scope.title = title;
+            $scope.widgetType = widgetType;
+            $scope.scale = 
+            $scope.webkitscale = 
+            $scope.zoom = scale;
+            $scope.width = width;
+            $scope.height = height;
+            $scope.top = top;
+            $scope.update = update;
+        }
+
         return {
-            template : template
+            template : template,
+            controller: ['$scope', '$element', '$sce', '$http', 'widgetService', controller]
         };
     }
 

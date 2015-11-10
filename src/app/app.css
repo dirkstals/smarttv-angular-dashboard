@@ -10,6 +10,7 @@ html, body{
 
 header{
     padding-left: 16px;
+    padding-right: 8px;
 }
 
 footer{
@@ -21,6 +22,10 @@ h2{
     font-weight: 400;
     color: rgba(255, 255, 255, 0.7);
     margin: 0;
+    max-height: 2.5em;
+    line-height: 1.25em;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 h3{
@@ -39,6 +44,20 @@ h4{
     word-break: break-word;
     text-align: center;
     line-height: 1em;
+}
+
+h5{
+    font-size: 1em;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 1);
+    margin: 0;
+    word-break: break-word;
+    text-align: center;
+    line-height: 1.3em;
+    max-height: 6.6em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 10px;
 }
 
 p{
@@ -69,6 +88,7 @@ footer p span{
 .blue     > figure { background: #12b0c5; }
 .purple   > figure { background: #9c4274; }
 .red      > figure { background: #ec663c; }
+.yellow   > figure,
 .orange   > figure { background: #ff9618; }   
 
 
@@ -160,4 +180,31 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
 }
 .gmnoprint div {
     background:none !important;
+}
+
+.avatars{
+    width: 100%;
+    padding: 10px;
+    padding-right: 34px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    padding: 10px 5px 0px;
+    -webkit-flex: 24px;
+    flex: 24px;
+}
+
+.avatar{
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px -1px black;
+}
+
+.wallboard #ghx-chart-content,
+.iframe body,
+.gadget{ 
+    background: red; 
 }
