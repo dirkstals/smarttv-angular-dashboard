@@ -37,6 +37,9 @@ module.exports = function(grunt) {
             },
             widget: {
                 src: 'src/widget.info', dest: 'dist/widget.info'
+            },
+            images: {
+                expand: true, flatten: true, src: 'src/app/images/*', dest: 'dist/app/images/'
             }
         }
     });

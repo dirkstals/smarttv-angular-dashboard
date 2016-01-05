@@ -3,13 +3,13 @@
   <cpname itemtype="string"/>  
   <cplogo itemtype="string"/>  
   <cpauthjs itemtype="string"/>  
-  <ThumbIcon itemtype="string"/>  
-  <BigThumbIcon itemtype="string"/>  
-  <ListIcon itemtype="string"/>  
-  <BigListIcon itemtype="string"/>  
+  <ThumbIcon itemtype="string">app/images/ThumbIcon.png</ThumbIcon>
+  <BigThumbIcon itemtype="string">app/images/BigThumbIcon.png</BigThumbIcon>
+  <ListIcon itemtype="string">app/images/ListIcon.png</ListIcon>
+  <BigListIcon itemtype="string">app/images/BigListIcon.png</BigListIcon>
   <category itemtype="string"/>  
   <autoUpdate itemtype="boolean">n</autoUpdate>  
-  <ver itemtype="string">0.2.2</ver>  
+  <ver itemtype="string">0.2.4</ver>  
   <mgrver itemtype="string"/>  
   <fullwidget itemtype="boolean">y</fullwidget>  
   <type itemtype="string">user</type>  
@@ -18,7 +18,7 @@
   <childlock itemtype="boolean">n</childlock>  
   <videomute itemtype="boolean">n</videomute>  
   <dcont itemtype="boolean">y</dcont>  
-  <widgetname itemtype="string">Dashboard VRT Video 0.2.2</widgetname>  
+  <widgetname itemtype="string">Dashboard VRT Video 0.2.4</widgetname>  
   <description itemtype="string"/>  
   <width itemtype="string">1280</width>  
   <height itemtype="string">720</height>  
